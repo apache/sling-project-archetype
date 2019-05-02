@@ -52,17 +52,27 @@ how to build and deploy the entire project in one step.
 
 #### Usage
 
-Until this project is fully released in the public Maven Repo this is how to use it:
+You can create a project with this archetype using this command:
+```
+mvn archetype:generate \
+   -DarchetypeGroupId=org.apache.sling \
+   -DarchetypeArtifactId=sling-project-archetype \
+   -DarchetypeVersion=1.0.0
+```
+Maven will then guide you through the configuration process to fill in all the
+properties and then create the project.
 
-* Build this project locally
+#### Local Build and Usage
 
-    mvn clean install
-
+* Build this project locally with
+```
+mvn clean install
+```
 * Go to your folder where you want your generated project to be
 * Generate it with:
-
-    mvn archetype:generate -DarchetypeCatalog=local
-
+```
+mvn archetype:generate -DarchetypeCatalog=local
+```
 * Select this Archetype from a given list
 * Provide the requested properties
 
