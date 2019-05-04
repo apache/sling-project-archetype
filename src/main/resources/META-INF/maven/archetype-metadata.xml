@@ -24,9 +24,9 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 >
     <requiredProperties>
-        <requiredProperty key="version">
-            <defaultValue>1.0.0-SNAPSHOT</defaultValue>
-        </requiredProperty>
+<!--        <requiredProperty key="version">-->
+<!--            <defaultValue>1.0.0-SNAPSHOT</defaultValue>-->
+<!--        </requiredProperty>-->
 
         <!--
            The Project Label used a prefix to the name of modules and is part of the descriptions
@@ -36,9 +36,9 @@
            This is the folder name of the group underneath of /etc/packages where the content package
            is installed
         -->
-        <requiredProperty key="packageGroup">
-            <defaultValue>${groupId}</defaultValue>
-        </requiredProperty>
+<!--        <requiredProperty key="packageGroup">-->
+<!--            <defaultValue>${groupId}</defaultValue>-->
+<!--        </requiredProperty>-->
         <!--
             The folder name underneath /apps where components etc is installed from content packages.
             This folder separates projects from each other and should be unique within your deployment
@@ -54,7 +54,13 @@
             Package of the generated Service classes
         -->
         <requiredProperty key="package">
-            <defaultValue>${groupId}</defaultValue>
+<!--            <defaultValue>${groupId}</defaultValue>-->
+        </requiredProperty>
+        <!--
+            Group Name under which the Package is installed (inside /etc)
+        -->
+        <requiredProperty key="packageGroup">
+<!--            <defaultValue>${groupId}</defaultValue>-->
         </requiredProperty>
         <!--
             Sub Package for the Sling Models (it is prepended with the package specified above)
@@ -66,22 +72,22 @@
             Target Host Name or IP Address of the Deployment Sling Server
         -->
         <requiredProperty key="slingHostName">
-            <defaultValue>localhost</defaultValue>
+<!--            <defaultValue>localhost</defaultValue>-->
         </requiredProperty>
         <!--
             Target Port of the Deployment Sling Server
         -->
         <requiredProperty key="slingPort">
-            <defaultValue>8080</defaultValue>
+<!--            <defaultValue>8080</defaultValue>-->
         </requiredProperty>
         <!-- If set to yes a project is created with an All Packager rather than deploying the bundle inside ui.apps -->
         <requiredProperty key="optionAll">
-            <defaultValue>n</defaultValue>
+<!--            <defaultValue>n</defaultValue>-->
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
         <!-- Indicates if the examples should be a separate module, merged into or ditched -->
         <requiredProperty key="optionExample">
-            <defaultValue>s</defaultValue>
+<!--            <defaultValue>s</defaultValue>-->
             <validationRegex>^(s|m|d)$</validationRegex>
         </requiredProperty>
     </requiredProperties>

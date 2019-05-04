@@ -240,7 +240,6 @@
                     <configuration>
                         <failOnMissingEmbed>true</failOnMissingEmbed>
                         <force>true</force>
-                        <group>\${packageGroup}</group>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -399,6 +398,7 @@
                 <groupId>commons-lang</groupId>
                 <artifactId>commons-lang</artifactId>
                 <version>${commons-lang.version}</version>
+                <scope>provided</scope>
             </dependency>
 
             <!-- Basic dependencies for Unit Tests -->

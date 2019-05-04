@@ -1,5 +1,12 @@
-### Sling Template through Maven Archetype
+### Sling Project Template through Maven Archetype
 
+#### Releases
+
+| Version | Description |
+|:--------|:------------|
+|1.0.0    |Initial Release. Do not use anymore as it has issues with handling embedded bundles|
+|1.0.1    |Fixes for the embedded bundles issue and prevents the interactive mode to fail to ask for certain parameters by having no defaults|
+ 
 #### Introduction
 
 This archetype will create a Sling project that can be deployed on the Sling 10. In contrast to
@@ -40,10 +47,10 @@ how to build and deploy the entire project in one step.
 |artifactId           |Maven Artifact Id|
 |version              |Version of your project|
 |artifactName         |Project Label used in the Descriptions and Module Name|
-|packageGroup         |Name of the Package Folder where the ui.apps is installed in (/etc/packages)|
+|package              |Root Package of the Java Code|
+|packageGroup         |Name of the Package Folder where the package is installed in (/etc/packages)|
 |appsFolderName       |Folder name under /apps where components etc are installed|
 |contentFolderName    |Folder name under /content where the content is added to|
-|package              |Root Package of the Java Code|
 |slingModelSubPackage |Sub Package where Sling Models should be place in with no trailing dots|
 |slingHostName        |Host Name or IP Address of the server where Sling is hosted|
 |slingPort            |Port to which your Sling instance is bound to|
@@ -57,7 +64,7 @@ You can create a project with this archetype using this command:
 mvn archetype:generate \
    -DarchetypeGroupId=org.apache.sling \
    -DarchetypeArtifactId=sling-project-archetype \
-   -DarchetypeVersion=1.0.0
+   -DarchetypeVersion=1.0.1
 ```
 Maven will then guide you through the configuration process to fill in all the
 properties and then create the project.
@@ -82,13 +89,14 @@ There is a simple integration test setup with this archetype.
 This script will build both the Merged All and UI (ui.apps packaging) and install them on the
 local Sling instance. The resulting pages (from the example code) can be viewed here:
 
-* [All Home](http://localhost:8080/content/testContentAll/home.html)
-* [UI Home](http://localhost:8080/content/testContentUI/home.html)
+* [All Merged Home](http://localhost:8080/content/testContentAllMer/home.html)
+* [UI Merged Home](http://localhost:8080/content/testContentUIMer/home.html)
 
-You can run this one using the attached Unix shell script:
-
-    sh build.run.and.deploy.test.sh
+You can run this all of these test projects using the attached Unix shell script:
+```
+sh build.run.and.deploy.test.sh
+```
 
 The properties for the integration test can be found under
-**/test/resources/projects/[all/notAll]/archetype.properties**.
+**/test/resources/projects/\[all/notAll\]/archetype.properties**.
 

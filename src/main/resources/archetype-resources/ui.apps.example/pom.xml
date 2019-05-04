@@ -72,26 +72,17 @@
                 <artifactId>filevault-package-maven-plugin</artifactId>
                 <configuration>
                     <filterSource>\${basedir}/src/main/content/META-INF/vault/filter.xml</filterSource>
+                    <!-- @startForNotAll@ This is used for the Post Generation Handling. Do not alter or remove -->
+                    <embeddedTarget>/apps/\${appsFolderName}/install</embeddedTarget>
+                    <embeddeds>
+                        <embedded>
+                            <groupId>\${project.groupId}</groupId>
+                            <artifactId>core</artifactId>
+                            <filter>true</filter>
+                        </embedded>
+                    </embeddeds>
+                    <!-- @endForNotAll@ This is used for the Post Generation Handling. Do not alter or remove -->
                 </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>package</goal>
-                        </goals>
-                        <!-- @startForNotAll@ This is used for the Post Generation Handling. Do not alter or remove -->
-                        <configuration>
-                            <embeddedTarget>/apps/\${appsFolderName}/install</embeddedTarget>
-                            <embeddeds>
-                                <embedded>
-                                    <groupId>\${project.groupId}</groupId>
-                                    <artifactId>core</artifactId>
-                                    <filter>true</filter>
-                                </embedded>
-                            </embeddeds>
-                        </configuration>
-                        <!-- @endForNotAll@ This is used for the Post Generation Handling. Do not alter or remove -->
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
