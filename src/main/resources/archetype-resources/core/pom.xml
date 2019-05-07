@@ -145,26 +145,9 @@
         </dependency>
     </dependencies>
 
-    <profiles>
-        <!-- ATTENTION: It is highly recomended not to deploy this with this Profile if this Bundle was or will be deployed with the All package -->
-        <profile>
-            <id>autoInstallBundle</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.sling</groupId>
-                        <artifactId>maven-sling-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>install-bundle</id>
-                                <goals>
-                                    <goal>install</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
+    <!--
+        Attention: the autoInstallBundle was removed as deploying bundles directly and through a package is causing
+                   issues with updates and can prevent the latest code of a bundle being deployed.
+                   If you know what you are doing then you can use maven-sling-plugin directly from the Maven CLI.
+    -->
 </project>
