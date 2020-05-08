@@ -6,10 +6,11 @@
 |:--------|:------------|
 |1.0.0    |Initial Release. Do not use anymore as it has issues with handling embedded bundles|
 |1.0.2    |Fixes for the embedded bundles issue and prevents the interactive mode to fail to ask for certain parameters by having no defaults|
+|1.0.4    |Updated the Archetype to work with Sling 12|
  
 #### Introduction
 
-This archetype will create a Sling project that can be deployed on the Sling 10. In contrast to
+This archetype will create a Sling project that can be deployed on the Sling 12. In contrast to
 the Apache Sling Maven Archetypes this one is geared towards creating a full project and not
 just a single module.
 
@@ -64,7 +65,7 @@ You can create a project with this archetype using this command:
 mvn archetype:generate \
    -DarchetypeGroupId=org.apache.sling \
    -DarchetypeArtifactId=sling-project-archetype \
-   -DarchetypeVersion=1.0.2
+   -DarchetypeVersion=1.0.4
 ```
 Maven will then guide you through the configuration process to fill in all the
 properties and then create the project.
