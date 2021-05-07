@@ -123,8 +123,8 @@ or the bundle is not updated during installation.
 In case of a mishape the package and bundles needs to deinstalled
 manullay:
 
-1. Rmove /apps/${appsFolderName}/install folder
+1. Remove /apps/${appsFolderName}/install folder
 2. Uninstall the package using the package manager
 3. Remove the package from /etc/packages including the snapshots if they are still there
-4. Rmove the Bundle using the OSGi Console (/system/console/bundles)
+4. Remove the Bundle using the OSGi Console (/system/console/bundles)
 
