@@ -20,7 +20,7 @@ just a single module.
 
 The **core** and **ui.apps** are empty Maven modules that are ready for you code.
 
-There are also **example** modules with the extension of **.exmaple**. Please copy whatever you
+There are also **example** modules with the extension of **.example**. Please copy whatever you
 want from these module into the appropriate module. The example modules are not intended to be
 installed into Sling.
 Both type (regular and example) have the same structure and so you can copy them over without
