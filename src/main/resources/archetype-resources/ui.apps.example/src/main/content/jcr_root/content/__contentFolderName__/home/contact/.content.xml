@@ -1,7 +1,5 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
-<!-- /*
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
     Licensed to the Apache Software Foundation (ASF) under one
     or more contributor license agreements.  See the NOTICE file
     distributed with this work for additional information
@@ -18,5 +16,10 @@
     KIND, either express or implied.  See the License for the
     specific language governing permissions and limitations
     under the License.
-*/ -->
-${artifactName} Footer. Website generated from the <a href="https://github.com/apache/sling-project-archetype">Sling Project Archetype</a>.
+--><jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="sling:Folder"
+          jcr:title="${artifactName} Contact"
+          jcr:description="${artifactName} Contact Page. This is a page where contact information can be added."
+          sling:resourceType="${appsFolderName}/page"
+>
+</jcr:root>

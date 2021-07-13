@@ -25,12 +25,20 @@
     <sly data-sly-include="${symbol_dollar}{'head.html'}"/>
 </head>
     <body>
-        <h3>Navigation</h3>
-        <div data-sly-list.child="${symbol_dollar}{resource.listChildren}">
-            <a href="${symbol_dollar}{child.path}.html">${symbol_dollar}{child.name}</a>
+        <nav >
+            <a href="/content/${contentFolderName}/home.html">Home</a>
+            <sly data-sly-unwrap data-sly-list.child="${symbol_dollar}{resource.listChildren}">
+                | <a href="${symbol_dollar}{child.path}.html">${symbol_dollar}{child.name}</a>
+            </sly>
+        </nav>
+        <div class="body">
+            <sly data-sly-include="${symbol_dollar}{'body.html'}"/>
+            <div class="explanation">
+                This is a standard Sling page. The title and description rendered are 
+                taken from the resource properties. The resource currently being rendered is
+                ${symbol_dollar}{resource.path} and its resource type is ${symbol_dollar}{properties.sling:resourceType} 
+            </div>
         </div>
-        <br/>
-        <sly data-sly-include="${symbol_dollar}{'body.html'}"/>
         <footer>
             <sly data-sly-include="${symbol_dollar}{'footer.html'}"/>
         </footer>

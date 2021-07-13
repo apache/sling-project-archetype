@@ -1,6 +1,3 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
     Licensed to the Apache Software Foundation (ASF) under one or more contributor license
@@ -16,8 +13,4 @@
 -->
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
           jcr:primaryType="sling:Folder"
-          jcr:title="${artifactName} Home"
-          jcr:description="${artifactName} Home Page. This is the entry point to your website and typically contains a welcome message and links to the most important pages."
-          sling:resourceType="${appsFolderName}/home"
->
-</jcr:root>
+/>
