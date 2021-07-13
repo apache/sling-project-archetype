@@ -19,7 +19,7 @@
 --><jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
           jcr:primaryType="sling:Folder"
           jcr:title="${artifactName} Welcome"
-          jcr:description="${artifactName} Welcome Page"
+          jcr:description="${artifactName} Welcome Page. This is an example sub-page that demonstrates how multiple resource types can work in a single page."
           sling:resourceType="${appsFolderName}/page"
 >
 </jcr:root>
