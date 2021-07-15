@@ -21,6 +21,9 @@ package ${package}.servlet;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.nio.charset.StandardCharsets;
+import java.util.zip.ZipOutputStream;
+import java.util.zip.ZipEntry;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -58,31 +61,24 @@ import org.slf4j.LoggerFactory;
 )
 @SuppressWarnings("serial")
 public class ZipServlet extends SlingSafeMethodsServlet {
-    
-    private final Logger log = LoggerFactory.getLogger(ByResourceTypeServlet.class);
 
     @Override
     protected void doGet(SlingHttpServletRequest request,
             SlingHttpServletResponse response) throws ServletException,
             IOException {
-        Resource resource = request.getResource();
-
-        Writer w = response.getWriter();
-        w.write("<!DOCTYPE html PUBLIC ${symbol_escape}"-//IETF//DTD HTML 2.0//EN${symbol_escape}">");
-        w.write("<html>");
-        w.write("<head>");
-        w.write("<title>Hello World Servlet</title>");
-        w.write("</head>");
-        w.write("<body>");
-        w.write("<h1>Hello ");
-        w.write(resource.getPath());
-        w.write("</h1>");
-        w.write("</body>");
-        w.write("</html>");
-        
-        log.info("Hello World Servlet");
-        
+        response.setContentType("application/content-stream");
+        try ( ZipOutputStream zos = new ZipOutputStream(response.getOutputStream())) {
+            for ( Resource child : request.getResource().getChildren() ) {
+                ZipEntry entry = new ZipEntry(child.getName() + ".txt");
+                zos.putNextEntry(entry);
+                StringBuilder sb = new StringBuilder();
+                sb
+                    .append(child.getValueMap().get("jcr:title", String.class))
+                    .append("\n\n")
+                    .append(child.getValueMap().get("jcr:contents"));
+                zos.write(sb.toString().getBytes(StandardCharsets.UTF_8));
+            }
+        }
     }
-
 }
 
