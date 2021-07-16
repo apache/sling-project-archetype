@@ -67,7 +67,10 @@
             <plugins>
                 <plugin>
                     <artifactId>maven-archetype-plugin</artifactId>
-                    <version>3.1.2</version>
+                    <configuration>
+                        <!-- TODO - to remove once Sling Starter 12 is out -->
+                        <settingsFile>src/test/resources/settings.xml</settingsFile>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>

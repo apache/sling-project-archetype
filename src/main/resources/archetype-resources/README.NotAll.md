@@ -22,12 +22,14 @@
 #### Introduction
 
 This project was created by the Sling Project Maven Archetype which created
-two modules:
+three modules:
 
 1. **core**: OSGi Bundle which is deployed as OSGi Bundle to Sling which includes your
              Servlets, Filters, Sling Models and much more. This module is **not intended**
              to contain Sling Content.
-2. **ui.apps**: JCR Content Module which is used to install a JCR Package into Sling
+2. **launcher**: Feature model module which assembles a full application from the project
+                 which can then be launched using the included `./launch.sh` script
+3. **ui.apps**: JCR Content Module which is used to install a JCR Package into Sling
                 by using **Composum**. For that it must be installed and the Composum
                 Package Manager must be whitelisted.
 
@@ -50,6 +52,7 @@ with **core.example** and **ui.apps.example**.
         <module>core.example</module>
         <module>ui.apps</module>
         <module>ui.apps.example</module>
+        <module>launcher</module>
     </modules>
 
 #### Why a JCR Package instead of a Content Bundle
