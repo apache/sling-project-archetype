@@ -159,6 +159,22 @@
                 </fileSet>
             </fileSets>
         </module>
+        <module id="launcher" dir="launcher" name="launcher">
+            <fileSets>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/main/features</directory>
+                    <includes>
+                        <include>**/*.json</include>
+                    </includes>
+                </fileSet>
+                <fileSet encoding="UTF-8">
+                    <directory></directory>
+                    <includes>
+                        <include>*.sh</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
         <module id="all" dir="all" name="all">
             <!--<fileSets>-->
                 <!--<fileSet filtered="true" encoding="UTF-8">-->

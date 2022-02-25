@@ -67,7 +67,6 @@
             <plugins>
                 <plugin>
                     <artifactId>maven-archetype-plugin</artifactId>
-                    <version>3.1.2</version>
                 </plugin>
             </plugins>
         </pluginManagement>
