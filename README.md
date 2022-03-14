@@ -11,7 +11,7 @@
 |1.0.0    |Initial Release. Do not use anymore as it has issues with handling embedded bundles|
 |1.0.2    |Fixes for the embedded bundles issue and prevents the interactive mode to fail to ask for certain parameters by having no defaults|
 |1.0.4    |Updated the Archetype to work with Sling 12|
-|1.0.6    |Added a launcher module|
+|1.0.8    |Added a launcher module|
 
 #### Introduction
 
