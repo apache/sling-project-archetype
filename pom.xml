@@ -32,7 +32,7 @@
     <version>1.0.7-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
 
-    <name>Sling Project Archetype</name>
+    <name>Project Archetype</name>
     <description>
         This archetype is creating a full Sling Project composed of
         a OSGi Bundle and a Content Package which can be deployed
