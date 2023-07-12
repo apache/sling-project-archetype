@@ -29,6 +29,11 @@
         This is a Module which contains a sample feature model build, built on
         top of the Sling Starter and adding this project's artifacts.
     </description>
+
+    <properties>
+        <!-- TODO - read from starter pom -->
+        <asm.version>9.5</asm.version>
+    </properties>
     <build>
         <plugins>
             <plugin>
@@ -37,47 +42,13 @@
                 <extensions>true</extensions>
 
                 <configuration>
+                    <!-- TODO - read from starter pom -->
+                    <replacePropertyVariables>asm.version,jackrabbit.version,groovy.version,oak.version,slf4j.version,composum.nodes.version,jackson.version</replacePropertyVariables>
                     <skipAddFeatureDependencies>true</skipAddFeatureDependencies>
-                    <framework>
-                        <groupId>org.apache.felix</groupId>
-                        <artifactId>org.apache.felix.framework</artifactId>
-                        <version>\${org.apache.felix.framework.version}</version>
-                    </framework>
-
-                    <!--
-                        Prepares a feature model aggregate that takes the following features from
-                        the Sling Starter:
-                        - nosample_base - the base Sling Starter
-                        - oak_persistence_sns - SegmentNodeStore persistence for Oak
-                        - composum - The Composum Nodes administration tool
-
-                        Notably missing are the slingshot and starter samples
-                     -->
                     <aggregates>
                         <aggregate>
                             <classifier>app</classifier>
                             <filesInclude>*.json</filesInclude>
-                            <includeArtifact>
-                                <groupId>org.apache.sling</groupId>
-                                <artifactId>org.apache.sling.starter</artifactId>
-                                <classifier>nosample_base</classifier>
-                                <version>\${sling.starter.version}</version>
-                                <type>slingosgifeature</type>
-                            </includeArtifact>
-                            <includeArtifact>
-                                <groupId>org.apache.sling</groupId>
-                                <artifactId>org.apache.sling.starter</artifactId>
-                                <classifier>oak_persistence_sns</classifier>
-                                <version>\${sling.starter.version}</version>
-                                <type>slingosgifeature</type>
-                            </includeArtifact>
-                            <includeArtifact>
-                                <groupId>org.apache.sling</groupId>
-                                <artifactId>org.apache.sling.starter</artifactId>
-                                <classifier>composum</classifier>
-                                <version>\${sling.starter.version}</version>
-                                <type>slingosgifeature</type>
-                            </includeArtifact>
                         </aggregate>
                     </aggregates>
                     <scans>
