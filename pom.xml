@@ -35,7 +35,7 @@
     <properties>
         <!-- various properties which influence generated archetypes -->
         <archetype.java.version>11</archetype.java.version>
-        
+
         <!-- dependency versions to use in generated archetypes -->
         <junit.version>4.12</junit.version>
         <slf4japi.version>1.7.25</slf4japi.version>
@@ -98,10 +98,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <!-- 
+                <!--
                     allow defining un-filtered resources in the pom.xml
                     For example, the artifactId should not be escaped:
-                    
+
                     <artifact>\${artifactId}</artifactId>
                  -->
                 <configuration>
@@ -125,7 +125,7 @@
                         <exclude>src/test/resources/projects/*/goal.txt</exclude>
                     </excludes>
                 </configuration>
-            </plugin>                
+            </plugin>
         </plugins>
     </build>
 
