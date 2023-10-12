@@ -16,6 +16,8 @@
  */
 
 import java.util.regex.Pattern
+import java.util.zip.ZipFile
+
 import org.apache.commons.io.FileUtils
 
 def rootDir = new File(request.getOutputDirectory() + "/" + request.getArtifactId())
@@ -40,6 +42,7 @@ def readmeNotAll = new File(rootDir, "README.NotAll.md")
 def optionAll = request.getProperties().get("optionAll")
 def optionExample = request.getProperties().get("optionExample")
 
+def starterRef = request.getProperties().get("slingStarterBaseRef")
 
 // helper methods
 
@@ -50,6 +53,37 @@ def removeModule(pomFile, moduleName) {
     pomContent = pomContent.replaceAll(pattern, "")
     pomFile.newWriter().withWriter { w ->
         w << pomContent
+    }
+}
+
+def downloadStarter(rootDir, ref) {
+    def url = new URL("https://github.com/apache/sling-org-apache-sling-starter/archive/" + ref + ".zip")
+    println("Downloading Sling Starter from ${url}")
+    def localFile = new File(rootDir, "sling-starter.zip")
+    localFile << url.getBytes()
+    def starterZip = new ZipFile(localFile)
+    def launcherDir = new File(rootDir, "launcher")
+    starterZip.entries().each { entry ->
+        println "Extracting ${entry.name}"
+        if ( entry.name.startsWith("sling-org-apache-sling-starter-master/src/main/features/") ) {
+            // remove first segment from entry.name
+            def entryName = entry.name.substring(entry.name.indexOf("/") + 1)
+            // ignore samples which are not needed (or a security risk)
+            if ( entryName.endsWith("htl_repl.json") || entryName.endsWith("starter.json") || entryName.contains("slingshot") ) {
+                return
+            }
+            // ignore test content
+            if ( entryName.contains("test") ) {
+                return
+            }
+
+            def targetFile = new File(launcherDir, entryName)
+            if(entry.isDirectory()) {
+                targetFile.mkdirs()
+            } else {
+                targetFile << starterZip.getInputStream(entry)
+            }
+        }
     }
 }
 
@@ -138,3 +172,5 @@ if(optionExample == "m") {
     }
     removeModule(rootPom, "ui.apps.example")
 }
+
+downloadStarter(rootDir, starterRef)
