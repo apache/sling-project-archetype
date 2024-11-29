@@ -23,7 +23,7 @@
     <parent>
         <groupId>org.apache.sling</groupId>
         <artifactId>sling</artifactId>
-        <version>51</version>
+        <version>62</version>
         <relativePath />
     </parent>
 
@@ -32,7 +32,29 @@
     <version>1.0.13-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
 
+    <name>Project Archetype</name>
+    <description>This archetype is creating a full Sling Project composed of
+        a OSGi Bundle and a Content Package which can be deployed
+        to the Sling using specific profiles. It also contains two shadow
+        folders that provide example code / files which are not part
+        of the default build but can be easily copied into the active modules.
+
+        If the project was created with the **optionAll** property set
+        to **y** (yes) then an **All** package is created with acts as
+        the single deployment unit of all bundles and packages in that
+        project.
+        Otherwise the **ui.apps** package is the deployment unit.</description>
+
+    <scm>
+        <connection>scm:git:https://gitbox.apache.org/repos/asf/sling-project-archetype.git</connection>
+        <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/sling-project-archetype.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/apache/sling-project-archetype.git</url>
+    </scm>
+
     <properties>
+        <sling.java.version>11</sling.java.version>
+
         <!-- various properties which influence generated archetypes -->
         <archetype.java.version>11</archetype.java.version>
 
@@ -44,50 +66,30 @@
         <archetype.version>3.1.2</archetype.version>
     </properties>
 
-    <name>Project Archetype</name>
-    <description>
-        This archetype is creating a full Sling Project composed of
-        a OSGi Bundle and a Content Package which can be deployed
-        to the Sling using specific profiles. It also contains two shadow
-        folders that provide example code / files which are not part
-        of the default build but can be easily copied into the active modules.
-
-        If the project was created with the **optionAll** property set
-        to **y** (yes) then an **All** package is created with acts as
-        the single deployment unit of all bundles and packages in that
-        project.
-        Otherwise the **ui.apps** package is the deployment unit.
-    </description>
-
-    <scm>
-        <connection>scm:git:https://gitbox.apache.org/repos/asf/sling-project-archetype.git</connection>
-        <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/sling-project-archetype.git</developerConnection>
-        <url>https://github.com/apache/sling-project-archetype.git</url>
-        <tag>HEAD</tag>
-    </scm>
+    <dependencies>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.7</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
     <build>
-        <extensions>
-            <extension>
-                <groupId>org.apache.maven.archetype</groupId>
-                <artifactId>archetype-packaging</artifactId>
-                <version>${archetype.version}</version>
-            </extension>
-        </extensions>
 
         <resources>
             <resource>
+                <filtering>true</filtering>
                 <!-- filter pom.xml -->
                 <directory>src/main/resources</directory>
-                <filtering>true</filtering>
                 <includes>
                     <include>**/pom.xml</include>
                 </includes>
             </resource>
             <!-- Don't filter anything else -->
             <resource>
-                <directory>src/main/resources</directory>
                 <filtering>false</filtering>
+                <directory>src/main/resources</directory>
                 <excludes>
                     <exclude>**/pom.xml</exclude>
                 </excludes>
@@ -127,14 +129,12 @@
                 </configuration>
             </plugin>
         </plugins>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.archetype</groupId>
+                <artifactId>archetype-packaging</artifactId>
+                <version>${archetype.version}</version>
+            </extension>
+        </extensions>
     </build>
-
-    <dependencies>
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.7</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
 </project>
