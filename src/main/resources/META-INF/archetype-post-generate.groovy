@@ -14,9 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+@Grab(group="org.apache.groovy", module="groovy-xml", version="4.0.24")
 
 import java.util.regex.Pattern
 import org.apache.commons.io.FileUtils
+import groovy.xml.XmlSlurper
 
 def rootDir = new File(request.getOutputDirectory() + "/" + request.getArtifactId())
 
@@ -85,6 +87,22 @@ def removeTags(pomFile, forAll) {
         }
     }
 }
+
+// Use latest Sling Starter version from Maven Central
+def useLatestSlingStarterVersion(pomFile) {
+  def metadata = new XmlSlurper().parse("https://repo1.maven.org/maven2/org/apache/sling/org.apache.sling.starter/maven-metadata.xml")
+  def latestVersion = metadata.versioning.latest.toString()
+  assert latestVersion != null && latestVersion != ""
+  def pomContent = pomFile.getText("UTF-8")
+  pomContent = pomContent.replaceAll("@SLING_STARTER_LATEST_VERSION@", latestVersion)
+  pomFile.newWriter("UTF-8").withWriter { w ->
+    w << pomContent
+  }
+}
+
+
+// use latest sling starter version
+useLatestSlingStarterVersion(rootPom)
 
 if(optionAll == "n") {
     // Remove All Package / Module

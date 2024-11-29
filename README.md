@@ -16,7 +16,7 @@
 
 #### Introduction
 
-This archetype will create a Sling project that can be deployed on the Sling 12. In contrast to
+This archetype will create a Sling project that can be deployed on the Sling. In contrast to
 the Apache Sling Maven Archetypes this one is geared towards creating a full project and not
 just a single module.
 
