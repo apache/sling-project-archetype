@@ -17,11 +17,12 @@
     specific language governing permissions and limitations
     under the License.
 -->
+
 <archetype-descriptor
-        xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
-        name="sling-project-archetype"
-        xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 http://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd"
+    name="sling-project-archetype"
 >
     <requiredProperties>
 <!--        <requiredProperty key="version">-->
@@ -89,6 +90,10 @@
         <requiredProperty key="optionExample">
 <!--            <defaultValue>s</defaultValue>-->
             <validationRegex>^(s|m|d)$</validationRegex>
+        </requiredProperty>
+        <!-- Git reference from the Sling Starter project use to bootstrap the launcher -->
+        <requiredProperty key="slingStarterBaseRef">
+            <defaultValue>master</defaultValue>
         </requiredProperty>
     </requiredProperties>
     <fileSets>
