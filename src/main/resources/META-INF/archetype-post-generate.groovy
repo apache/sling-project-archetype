@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-@Grab(group="org.apache.groovy", module="groovy-xml", version="4.0.24")
+@Grab(group="org.apache.groovy", module="groovy-xml", version="4.0.23")
 
 import java.util.regex.Pattern
 import org.apache.commons.io.FileUtils
