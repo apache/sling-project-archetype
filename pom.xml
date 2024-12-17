@@ -59,18 +59,18 @@
         <archetype.java.version>11</archetype.java.version>
 
         <!-- dependency versions to use in generated archetypes -->
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.2</junit.version>
         <slf4japi.version>1.7.25</slf4japi.version>
 
         <!-- version of the maven archetype plugin -->
-        <archetype.version>3.1.2</archetype.version>
+        <archetype.version>3.3.1</archetype.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.14.0</version>
+            <version>2.18.0</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
