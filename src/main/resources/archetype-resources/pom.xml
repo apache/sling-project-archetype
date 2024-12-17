@@ -73,8 +73,7 @@
         <dependency.plugin.version>3.8.1</dependency.plugin.version>
         <build.helper.plugin.version>3.6.0</build.helper.plugin.version>
         <wcmio.plugin.version>2.1.6</wcmio.plugin.version>
-        <!-- TODO: Could not upgrade to 1.1.x as some tests prevent the creation of All packages -->
-        <filevault-package.plugin.version>1.0.4</filevault-package.plugin.version>
+        <filevault-package.plugin.version>1.4.0</filevault-package.plugin.version>
         <slingfeature.plugin.version>1.9.0</slingfeature.plugin.version>
 
         <osgi.core.version>7.0.0</osgi.core.version>
@@ -244,7 +243,6 @@
                     <extensions>true</extensions>
                     <configuration>
                         <failOnMissingEmbed>true</failOnMissingEmbed>
-                        <force>true</force>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -256,7 +254,6 @@
                         <userId>${sling.user}</userId>
                         <password>${sling.password}</password>
                         <failOnMissingEmbed>true</failOnMissingEmbed>
-                        <force>true</force>
                         <group>\${packageGroup}</group>
                     </configuration>
                 </plugin>
