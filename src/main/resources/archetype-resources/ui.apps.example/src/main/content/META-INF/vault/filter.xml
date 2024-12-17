@@ -43,9 +43,8 @@
 
     <!--
         Sets up redirects to make the application easier to access. Can
-        erase previous rules, therefore it needs to be uncommented.
+        erase previous rules, so use it with care.
      -->
-     <!-- 
     <filter root="/etc/map/http/localhost_any" />
-     -->
+
 </workspaceFilter>

@@ -77,7 +77,7 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.sling</groupId>
-                <artifactId>maven-sling-plugin</artifactId>
+                <artifactId>sling-maven-plugin</artifactId>
                 <configuration>
                     <slingUrl>http://\${sling.host}:\${sling.port}/system/console</slingUrl>
                     <user>\${sling.user}</user>
@@ -148,6 +148,6 @@
     <!--
         Attention: the autoInstallBundle was removed as deploying bundles directly and through a package is causing
                    issues with updates and can prevent the latest code of a bundle being deployed.
-                   If you know what you are doing then you can use maven-sling-plugin directly from the Maven CLI.
+                   If you know what you are doing then you can use sling-maven-plugin directly from the Maven CLI.
     -->
 </project>
