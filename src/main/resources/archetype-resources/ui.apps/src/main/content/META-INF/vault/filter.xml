@@ -36,7 +36,6 @@
         as it is in the '/apps/${appsFolderName}/install' folder (see the 'all'
         package).
     -->
-    <filter root="/apps/${appsFolderName}">
-        <exclude pattern="/apps/${appsFolderName}/install/.*"/>
-    </filter>
+    <filter root="/apps/${appsFolderName}"/>
+
 </workspaceFilter>

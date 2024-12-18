@@ -42,10 +42,6 @@
     </properties>
 
     <dependencies>
-#if ($optionExample=='s')
-<!--
-        Includes examples instead of the main modules. Once you are ready with your own code, remove the examples below and include the main modules instead.
-#end
         <dependency>
             <groupId>\${project.groupId}</groupId>
             <artifactId>core</artifactId>
@@ -58,7 +54,6 @@
             <type>content-package</type>
         </dependency>
 #if ($optionExample=='s')
--->
         <dependency>
             <groupId>\${project.groupId}</groupId>
             <artifactId>core.example</artifactId>
@@ -80,7 +75,7 @@
                 <artifactId>filevault-package-maven-plugin</artifactId>
                 <configuration>
                     <packageType>container</packageType>
-                    <embeddedTarget>/apps/\${appsFolderName}/install</embeddedTarget>
+                    <embeddedTarget>/apps/\${appsFolderName}-all/install</embeddedTarget>
                     <embeddeds>
 #if ($optionExample=='s')
 <!--
