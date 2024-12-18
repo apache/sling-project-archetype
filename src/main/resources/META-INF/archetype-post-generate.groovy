@@ -33,6 +33,7 @@ def uiAppsExamplePackage = new File(rootDir, "ui.apps.example")
 def uiAppsExampleSrc = new File(uiAppsExamplePackage, "src")
 
 def uiAppsPom = new File(uiAppsPackage, "pom.xml")
+def uiAppsExamplePom = new File(uiAppsExamplePackage, "pom.xml")
 def allPackage = new File(rootDir, "all")
 def rootPom = new File(rootDir, "pom.xml")
 def readme = new File(rootDir, "README.md")
@@ -110,6 +111,7 @@ if(optionAll == "n") {
     removeModule(rootPom, "all")
     // Remove content for 'All' and remove tag lines for Not All
     removeTags(uiAppsPom, false)
+    removeTags(uiAppsExamplePom, false)
     // Delete the Readme.md for All
     assert readmeAll.delete()
     // Rename the Not For All Readme to the Readme.md file
@@ -117,6 +119,7 @@ if(optionAll == "n") {
 } else {
     // Remove content for 'Not All' and remove tag lines for All
     removeTags(uiAppsPom, true)
+    removeTags(uiAppsExamplePom, true)
     // Delete the Readme.md for Not All
     assert readmeNotAll.delete()
     // Rename the For All Readme to the Readme.md file
