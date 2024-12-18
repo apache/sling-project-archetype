@@ -9,5 +9,10 @@
     {
         "id":"${groupId}/ui.apps/${version}/zip"
     }
+#if($optionExample=='s'),
+    {
+        "id":"${groupId}/ui.apps.example/${version}/zip"
+    }
+#end
   ]
 }
