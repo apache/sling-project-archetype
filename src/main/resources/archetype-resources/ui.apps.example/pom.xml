@@ -59,7 +59,7 @@
     <dependencies>
         <dependency>
             <groupId>\${project.groupId}</groupId>
-            <artifactId>core</artifactId>
+            <artifactId>core.example</artifactId>
             <version>\${project.version}</version>
         </dependency>
     </dependencies>
@@ -77,7 +77,7 @@
                     <embeddeds>
                         <embedded>
                             <groupId>\${project.groupId}</groupId>
-                            <artifactId>core</artifactId>
+                            <artifactId>core.example</artifactId>
                             <filter>true</filter>
                         </embedded>
                     </embeddeds>

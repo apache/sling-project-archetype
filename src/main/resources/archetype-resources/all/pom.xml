@@ -42,6 +42,10 @@
     </properties>
 
     <dependencies>
+#if ($optionExample=='s')
+<!--
+        Includes examples instead of the main modules. Once you are ready with your own code, remove the examples below and include the main modules instead.
+#end
         <dependency>
             <groupId>\${project.groupId}</groupId>
             <artifactId>core</artifactId>
@@ -53,6 +57,20 @@
             <version>\${project.version}</version>
             <type>content-package</type>
         </dependency>
+#if ($optionExample=='s')
+-->
+        <dependency>
+            <groupId>\${project.groupId}</groupId>
+            <artifactId>core.example</artifactId>
+            <version>\${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>\${project.groupId}</groupId>
+            <artifactId>ui.apps.example</artifactId>
+            <version>\${project.version}</version>
+            <type>content-package</type>
+        </dependency>
+#end
     </dependencies>
 
     <build>
@@ -64,18 +82,42 @@
                     <packageType>container</packageType>
                     <embeddedTarget>/apps/\${appsFolderName}/install</embeddedTarget>
                     <embeddeds>
+#if ($optionExample=='s')
+<!--
+        Includes examples instead of the main modules. Once you are ready with your own code, remove the examples below and include the main modules instead.
+#end
                         <embedded>
                             <groupId>\${project.groupId}</groupId>
                             <artifactId>core</artifactId>
                             <filter>true</filter>
                         </embedded>
+#if ($optionExample=='s')
+-->
+                        <embedded>
+                            <groupId>\${project.groupId}</groupId>
+                            <artifactId>core.example</artifactId>
+                            <filter>true</filter>
+                        </embedded>
+#end
                     </embeddeds>
                     <subPackages>
+#if ($optionExample=='s')
+<!--
+        Includes examples instead of the main modules. Once you are ready with your own code, remove the examples below and include the main modules instead.
+#end
                         <subPackage>
                             <groupId>\${project.groupId}</groupId>
                             <artifactId>ui.apps</artifactId>
                             <filter>true</filter>
                         </subPackage>
+#if ($optionExample=='s')
+-->
+                        <subPackage>
+                            <groupId>\${project.groupId}</groupId>
+                            <artifactId>ui.apps.example</artifactId>
+                            <filter>true</filter>
+                        </subPackage>
+#end
                     </subPackages>
                     <!-- This gives the Package a recognizable name in the Package Manager by prepending the Artifact Id of the Project -->
                     <name>\${rootArtifactId}-\${artifactId}</name>
