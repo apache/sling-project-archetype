@@ -29,7 +29,7 @@
 
     <groupId>org.apache.sling</groupId>
     <artifactId>sling-project-archetype</artifactId>
-    <version>1.0.14</version>
+    <version>1.0.15-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
 
     <name>Project Archetype</name>
@@ -48,7 +48,7 @@
     <scm>
         <connection>scm:git:https://gitbox.apache.org/repos/asf/sling-project-archetype.git</connection>
         <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/sling-project-archetype.git</developerConnection>
-        <tag>sling-project-archetype-1.0.14</tag>
+        <tag>HEAD</tag>
         <url>https://github.com/apache/sling-project-archetype.git</url>
     </scm>
 
