@@ -1,13 +1,45 @@
 {
+#if ($optionAll!='y')
   "bundles": [
+#if ($optionExample=='s')
+    /*
+    Includes examples instead of the main modules. Once you are ready with your own code, remove the examples below and include the main modules instead.
+    {
+        "id": "${groupId}/core/${version}",
+        "start-order": 20
+    },
+    */
+    {
+        "id": "${groupId}/core.example/${version}",
+        "start-order": 20
+    }
+#else
     {
         "id": "${groupId}/core/${version}",
         "start-order": 20
     }
+#end
   ],
+#end
   "content-packages:ARTIFACTS|required": [
+#if ($optionAll=='y')
+    {
+        "id":"${groupId}/all/${version}/zip"
+    }
+#elseif ($optionExample=='s')
+    /*
+    Includes examples instead of the main modules. Once you are ready with your own code, remove the examples below and include the main modules instead.
+    {
+      "id":"${groupId}/ui.apps.example/${version}/zip"
+    },
+    */
+    {
+        "id":"${groupId}/ui.apps.example/${version}/zip"
+    }
+#else
     {
         "id":"${groupId}/ui.apps/${version}/zip"
     }
+#end
   ]
 }
