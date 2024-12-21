@@ -13,6 +13,7 @@
 |1.0.4    |Updated the Archetype to work with Sling 12|
 |1.0.8    |Added a launcher module|
 |1.0.12   |Add Java 17 support|
+|1.0.14   |Automatically use latest available Sling Starter version, improve launcher for Windows and different Maven setups, include examples in launcher when enabled|
 
 #### Introduction
 
@@ -69,7 +70,7 @@ You can create a project with this archetype using this command:
 mvn archetype:generate \
    -DarchetypeGroupId=org.apache.sling \
    -DarchetypeArtifactId=sling-project-archetype \
-   -DarchetypeVersion=1.0.4
+   -DarchetypeVersion=1.0.14
 ```
 Maven will then guide you through the configuration process to fill in all the
 properties and then create the project.
