@@ -63,7 +63,7 @@
         <slf4japi.version>1.7.25</slf4japi.version>
 
         <!-- version of the maven archetype plugin -->
-        <archetype.version>3.3.1</archetype.version>
+        <archetype.version>3.4.1</archetype.version>
     </properties>
 
     <dependencies>
